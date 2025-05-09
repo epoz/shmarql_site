@@ -1,2 +1,3 @@
-# shmarql_site
-The documentation for SHMARQL, and what is show on shmarql.com
+# SHMARQL site.
+
+The documentation for SHMARQL, and what is shown on shmarql.com
