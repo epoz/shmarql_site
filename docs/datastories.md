@@ -2,7 +2,7 @@
 
 It is possible to create a collection of [Markdown](https://en.wikipedia.org/wiki/Markdown) files that contain integrated SPARQL queries and charts to be served by an instance of SHMARQL. By default, the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme is used, but you can create your own custom themes and styling too.
 
-When you run a SHMRAQL instance, there is a set of default files in the /src/docs/ directory that serve as the default user interface. You can override these files and create your own files in a local docs directory. For example, if you had a local directory called docs, you could use it like this:
+When you run a SHMARQL instance, there is a set of default files in the /src/docs/ directory that serve as the default user interface. You can override these files and create your own files in a local docs directory. For example, if you had a local directory called docs, you could use it like this:
 
 ```shell
 docker run -v $(pwd)/docs:/src/docs -v $(pwd)/navigation.yml:/src/docs/.nav.yml -p 8000:8000 --rm -it ghcr.io/epoz/shmarql:latest
