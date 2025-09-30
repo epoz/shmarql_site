@@ -54,3 +54,21 @@ GROUP BY ?type
 ORDER BY desc(?count)
 '''
 ```
+
+It is also possible to make other chart types, for example a map using some coordinates from Wikidata.
+
+```sparql
+# shmarql-view: mapchart
+# shmarql-zoom: 6
+# shmarql-lat: 49.006889
+# shmarql-lon: 8.403653
+
+select ?item ?geo where {
+  SERVICE <https://query.wikidata.org/sparql> {
+    SELECT DISTINCT * WHERE {
+      ?item wdt:P31/wdt:P279* wd:Q16917;
+            wdt:P625 ?geo .
+    }
+  }
+}
+```
