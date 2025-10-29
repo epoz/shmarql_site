@@ -81,21 +81,14 @@ The default behaviour is to compile all docs found in the ./src/docs/ folder of 
 
 A path to a location from which files will be served over HTTP. These files are "overlayed" into the files served from the docs folder, and have priority over the docs. So you can replace items in the docs folder by files from here. See also the `MOUNT` configuration option.
 
+## PREFIXES_FILEPATH
+
+This can be set to a location file path within the container directory space. This could either be a JSON file or a TURTLE file, and any prefixes defined in these files will be used as the default prefixes. If not set, a default set of prefixes will be used.
+
+See the [source of config.py](https://github.com/epoz/shmarql/blob/main/src/shmarql/config.py) for the current DEFAULT_PREFIXES variable.
+
+# Configuration Options that have been removed
+
 ## WATCH_DOCS
 
-Default is 0
-
-When set to 1, the /src/docs (1) directory are watched for changes, and the site is recompiled when changes are detected. This is useful for development, but should not be used in production.
-{ .annotate }
-
-1. The /src/docs/ path is _inside_ the container if running from Docker!
-
-This is useful if you would like to write some datastories in Markdown, and would like to test the queries and documentation interactively in a running SHMARQL instance, before deploying it or commiting to a git repository. Importantly, you also then have to map the docs directory that you are working in and the navigation file into the running container.
-
-For example, you can run an instance like this:
-
-```shell
-docker run -e WATCH_DOCS=1 -v $(pwd)/docs:/src/docs -v $(pwd)/navigation.yml:/src/docs/.nav.yml -p 8000:8000 --rm -it ghcr.io/epoz/shmarql:latest
-```
-
-See the [NFDI4Culture Datastories](https://gitlab.rlp.net/adwmainz/nfdi4culture/knowledge-graph/shmarql/datastories) to see how this is done in practice.
+This option is not needed any more, as it is possible to render Markdown documents on the fly. A mkdocs-material based UI is now not the default any more, SHMARQL uses [MonsterUI](https://monsterui.answer.ai/) for the toolkit.
